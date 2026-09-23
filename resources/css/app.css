@@ -31,6 +31,9 @@
     --color-error: #ffae9b;
     --color-error-content: #160b09;
     --border-foreground: #E5E7EB;
+    --macos-close: #F43F5E;
+    --macos-minimize: #FBBF24;
+    --macos-zoom: #34D399;
 
     --color-background: var(--color-base-100);
     --color-background-secondary: var(--color-base-200);
@@ -47,6 +50,10 @@
     --color-profile: var(--color-accent);
     --color-profile-content: var(--color-accent-content);
     --color-snippet: var(--color-neutral);
+
+    --color-macos-close: var(--macos-close);
+    --color-macos-minimize: var(--macos-minimize);
+    --color-macos-zoom: var(--macos-zoom);
 }
 
 pre code.hljs {

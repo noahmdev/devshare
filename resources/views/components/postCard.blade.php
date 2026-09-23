@@ -1,11 +1,11 @@
-@props(['title', 'description', 'user', 'date', 'tag', 'comments', 'votes' ])
+@props(['id', 'title', 'description', 'user', 'date', 'tag', 'comments', 'votes' ])
 @php use Illuminate\Support\Carbon;
  $totalVote = 0;
  foreach($votes as $vote) {
     $totalVote += $vote->value;
 }
 @endphp
-<a href="#">
+<a href="{{ route('post.show', $id) }}">
     <article class="bg-background-surface flex p-6 gap-6 rounded-lg border border-border">
         <div>
             <div class="flex flex-col w-8 h-14 justify-center items-center bg-background-secondary p-2 border border-border text-accent-content rounded-sm">
@@ -44,7 +44,7 @@
                 <div class="flex items-center justify-between text-[11px] pb-2 border-b border-b-border text-muted-foreground font-mono">
                    language
 
-                    <button class="flex items-center gap-2 text-[11px] text-muted-foreground font-mono">
+                    <button class="flex items-center gap-1.5 text-[11px] text-muted-foreground font-mono">
                         <x-icons.copy_icon />
                         Copy
                     </button>

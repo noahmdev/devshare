@@ -15,6 +15,7 @@ Route::delete('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create')->middleware('auth');
+Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show')->middleware('auth');
 
 Route::get('/', function () {
     return redirect('/posts');

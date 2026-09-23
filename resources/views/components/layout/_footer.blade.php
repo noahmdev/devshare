@@ -1,5 +1,5 @@
 <x-layout>
-   <footer class="bg-background-secondary text-sm text-muted-foreground h-17.5 w-full px-10 flex items-center justify-between">
+   <footer class="bg-background-secondary text-sm text-muted-foreground h-17.5 w-full px-10 flex items-center justify-between mt-auto">
        <p>© 2024 DevShare. Built for developers.</p>
 
        <div>
