@@ -42,7 +42,7 @@ $totalVotes = 0;
                             </div>
                         </div>
 
-                        <p class="px-2.5 py-1 text-primary border border-border rounded-md text-xs font-display font-semibold">{{ $post->tags }}</p>
+                        <p class="px-2.5 py-1 text-primary border border-border rounded-md text-xs font-display font-semibold">{{ $post->category }}</p>
                     </header>
 
                     <h1 class="font-display font-bold text-neutral-content text-[32px] leading-10 tracking-[-0.08rem]">{{ $post->title }}</h1>
