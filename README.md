@@ -1,58 +1,120 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Devshare
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Reddit-inspired web application for sharing programming tips, code snippets, and knowledge with other developers.
 
-## About Laravel
+## Overview
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Devshare is a web application built with Laravel that allows developers to share programming tips and code snippets, discuss technical topics, and learn from one another.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Users can publish posts, leave comments, and vote on contributions, creating a community-driven platform for sharing technical knowledge.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project was developed as part of my learning journey to strengthen my understanding of Laravel, MVC architecture, authentication, RESTful principles, database relationships, and automated testing.
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+* **Post management:** Create and view programming-related posts.
+* **Comments:** Discuss posts and share additional insights.
+* **Voting system:** Interact with posts through votes.
+* **User authentication:** Register, log in, and access authenticated features.
+* **Database integration:** Store and manage posts, comments, votes, and user data.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Tech Stack
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+* **Backend:** Laravel, PHP
+* **Frontend:** Blade, Tailwind CSS
+* **Database:** SQLite
+* **Testing:** Pest
+* **Build tool:** Vite
 
-## Agentic Development
+## Installation
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Prerequisites
+
+Make sure you have PHP, Composer, Node.js, npm, and a supported database installed.
+
+### 1. Clone the repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/noahmdev/devShare.git
+cd devshare
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Install dependencies
 
-## Contributing
+```bash
+composer install
+npm install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Configure the environment
 
-## Code of Conduct
+Create your environment file:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+cp .env.example .env
+```
 
-## Security Vulnerabilities
+Generate the application key:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan key:generate
+```
+
+Configure your database credentials in the `.env` file.
+
+### 4. Run database migrations
+
+```bash
+php artisan migrate
+```
+
+If the project includes seeders and you want to populate the database with sample data, run:
+
+```bash
+php artisan db:seed
+```
+
+### 5. Start the development servers
+
+Start the Laravel server:
+
+```bash
+php artisan serve
+```
+
+In a separate terminal, start the frontend development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at the local URL provided by Laravel, usually `http://127.0.0.1:8000`.
+
+## Screenshots
+
+
+
+## What I Learned
+
+Through this project, I gained practical experience with:
+
+* Building web applications using Laravel's MVC architecture.
+* Implementing user authentication and access control.
+* Designing RESTful routes and handling HTTP requests.
+* Working with Eloquent models and database relationships.
+* Managing relational data through migrations, factories, and seeders.
+* Writing automated tests with Pest.
+
+## Known Limitations
+
+* The user interface is not yet fully responsive and may not display optimally on mobile devices.
+
+## Upcoming Features
+
+* Implement search functionality to find posts by title and content.
+* Add a tagging system to categorize posts.
+* Support Markdown formatting in post descriptions.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project was created for learning purposes and as part of my developer portfolio.
