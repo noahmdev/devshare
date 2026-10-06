@@ -1,4 +1,4 @@
-@props(['id', 'title', 'description', 'user', 'date', 'tag', 'comments', 'votes' ])
+@props(['id', 'title', 'description', 'user', 'date', 'tag', 'comments', 'votes', 'languageCode' ])
 @php use Illuminate\Support\Carbon;
  $totalVote = 0;
  foreach($votes as $vote) {
@@ -42,7 +42,7 @@
 
             <div class="border border-border px-4 pt-4 rounded-lg bg-snippet mt-4">
                 <div class="flex items-center justify-between text-[11px] pb-2 border-b border-b-border text-muted-foreground font-mono">
-                   language
+                    {{ $languageCode }}
 
                     <button class="flex items-center gap-1.5 text-[11px] text-muted-foreground font-mono">
                         <x-icons.copy_icon />

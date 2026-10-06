@@ -9,7 +9,7 @@
         'SQL',
         'Architecture',
         'Performance',
-    ]
+    ];
 @endphp
 
 <x-layout>
@@ -32,25 +32,37 @@
                 <p class="leading-6 text-[16px] text-muted-foreground mt-1.5">Contribute a developper snippet, trick, or architectural best practice to the network.</p>
             </div>
 
-            <form method="POST" class="px-8 py-10 bg-background-secondary rounded-2xl border border-border flex flex-col gap-6">
+            <form method="POST" :action="{{ route('posts.create') }}" class="px-8 py-10 bg-background-secondary rounded-2xl border border-border flex flex-col gap-6">
                 <fieldset class="">
                     <legend class="mb-2.5 tracking-[0.06rem font-display font-semibold text-xs uppercase">Categories</legend>
-                    @foreach ($categories as $category)
-                        <button type="button" class="cursor-pointer px-3.5 py-1.5 rounded-lg bg-snippet text-neutral-content"> {{ $category }}</button>
-                    @endforeach
+
+                    <div x-data="{indexButton: 0, selectedButton: 'react'}">
+                        @foreach ($categories as $key => $category)
+                            <button
+                                type="button"
+                                class="cursor-pointer px-3.5 py-1.5 rounded-lg  text-neutral-content border border-border font-medium text-sm"
+                                @click="indexButton = {{ $key }}; selectedButton = {{ Js::from(strtolower($category)) }}"
+                                :class="indexButton === {{ $key }} ? 'bg-primary font-semibold text-primary-content' : 'bg-snippet'"
+                                >
+                                {{ $category }}
+                            </button>
+                        @endforeach
+
+                        <input type="hidden" name="category" :value="selectedButton"/>
+                    </div>
                 </fieldset>
 
-                <label>
+                <label x-data="{max: ''}">
                     <div class="flex justify-between items-center font-display text-xs mb-2">
                         <span class="font-semibold uppercase tracking-[0.06rem]">Title</span>
-                        <span>0/120</span>
+                        <span x-text="max.length + '/120'"></span>
                     </div>
-                    <input type="text" maxlength="120" placeholder="e.g., Prevent unnecessary re-renders with useTransition" class="w-full bg-snippet px-4 py-3.5 rounded-[14px] text-4 text-white outline-none border border-border" required/>
+                    <input type="text" maxlength="120" x-model="max" name="title" placeholder="e.g., Prevent unnecessary re-renders with useTransition" class="w-full bg-snippet px-4 py-3.5 outline-none rounded-[14px] text-4 text-white border border-border" required/>
                 </label>
 
                 <label class="flex flex-col gap-2">
                     <span class="font-display font-semibold text-xs tracking-[0.06rem] uppercase">Explanation & context</span>
-                    <textarea placeholder="Briefly explain the bottleneck, why this solution is superior, and where to apply it..." rows="5" class="bg-snippet text-white px-4 pt-2.75 rounded-lg border border-border   "></textarea>
+                    <textarea name="description" placeholder="Briefly explain the bottleneck, why this solution is superior, and where to apply it..." rows="5" class="bg-snippet outline-none text-white px-4 pt-2.75 rounded-lg border border-border   "></textarea>
                 </label>
 
                 <div>
@@ -58,12 +70,12 @@
                         <span class="font-display text-xs font-semibold tracking-[0.06rem] uppercase">Code snippet</span>
 
                         <label>
-                            <select class="rounded-lg border border-border bg-snippet py-2 pl-3 text-xs">
-                                <option>TypeScript</option>
-                                <option>JavaScript</option>
-                                <option>Python</option>
-                                <option>SQL</option>
-                                <option>CSS</option>
+                            <select name="language" class="rounded-lg border border-border bg-snippet py-2 pl-3 text-xs">
+                                <option value="typescript">TypeScript</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="python">Python</option>
+                                <option value="sql">SQL</option>
+                                <option value="css">CSS</option>
                             </select>
                         </label>
                     </div>
@@ -81,14 +93,13 @@
 
                         <div class="p-4">
                             <label>
-                                <textarea rows="10" placeholder="// Write or paste your snippet here..." class="w-full border border-[#6B7280] px-3 py-2 font-mono text-xs text-white"></textarea>
+                                <textarea name="code" rows="10" placeholder="// Write or paste your snippet here..." class="w-full border border-[#6B7280] px-3 py-2 outline-none font-mono text-xs text-white"></textarea>
                             </label>
                         </div>
                     </div>
                 </div>
 
                 <div class="border-t border-t-border-foreground pt-4 flex justify-end items-center gap-3">
-                    <a href="#" class="font-display font-semibold text-sm text-muted-foreground px-5 py-2.5 tracking-wide">
                         Cancel
                     </a>
 

@@ -10,7 +10,7 @@ use Illuminate\View\View;
 class LoginController extends Controller
 {
     public function create(): View {
-        return view('Auth.login');
+        return view('auth.login');
     }
 
     public function store(Request $request): RedirectResponse

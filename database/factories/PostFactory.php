@@ -23,6 +23,7 @@ class PostFactory extends Factory
             'title' => fake()->sentence(),
             'content' => fake()->text(),
             'category' => fake()->word(),
+            'languageCode' =>fake()->word(),
             'code' => fake()->text(),
             'created_at' => now(),
         ];
